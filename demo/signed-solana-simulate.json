@@ -1,0 +1,54 @@
+{
+  "receipt_id": "rec_20260921_063555_3",
+  "intent": {
+    "agent_id": "agent-scout",
+    "agent_name": "Agent-Scout",
+    "action": "solana_program",
+    "target": {
+      "platform": "solana_devnet",
+      "endpoint": "simulate"
+    },
+    "reasoning": "Simulate Solana token transfer - no real funds used",
+    "formed_at": "2026-09-21T06:00:00Z"
+  },
+  "policy_result": {
+    "effect": "allow",
+    "rule_id": "agent-solana-simulate-v1",
+    "principal": "xiaona@xiaona-lab",
+    "human_approved": false,
+    "human_approval_at": null,
+    "evaluated_at": "2026-09-21T06:35:55.938551+00:00"
+  },
+  "execution": {
+    "status": "executed",
+    "evidence": [
+      {
+        "type": "simulated_tx_hash",
+        "value": "SimTx_8d3112188e06960cc7c48480d2a938b05171acc22452",
+        "source": "solana_simulator"
+      },
+      {
+        "type": "instruction",
+        "value": "{\"program\": \"Token Program\", \"action\": \"simulate_transfer\", \"params\": {\"program\": \"Token Program\", \"action\": \"simulate_transfer\", \"recipient\": \"TestWallet\"}}",
+        "source": "solana_simulator"
+      }
+    ],
+    "errors": [],
+    "executed_at": "2026-09-21T06:35:55.938551+00:00",
+    "duration_ms": 0
+  },
+  "attribution": {
+    "initiated_by": "agent-scout",
+    "authorized_by": "xiaona@xiaona-lab",
+    "policy_version": "2026-09-20-v1",
+    "lab": "xiaona-lab"
+  },
+  "status": "executed",
+  "timestamp": "2026-09-21T06:35:55.938551+00:00",
+  "_hash": {
+    "body_hash": "23c61e3e740656331bf5b5242348445e7e06e04b955558764a83d2f219950e2a",
+    "prev_hash": "ffa48f01ebd5789f5f6639be5970248cb34ead43226f6cbbf24d05b7c4821ef5",
+    "signature": "f698e3438d8142f90385675df3cb59da3d121af175a30e151a70722d192b3991",
+    "signed_at": "2026-09-21T06:35:55.940117+00:00"
+  }
+}

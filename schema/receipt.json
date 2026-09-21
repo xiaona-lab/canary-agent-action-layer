@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Action Receipt",
+  "description": "A verifiable record of what an agent actually did. Records real events only.",
+  "type": "object",
+  "required": ["receipt_id", "intent", "policy_result", "status", "timestamp"],
+  "properties": {
+    "receipt_id": {
+      "type": "string",
+      "description": "Unique receipt identifier"
+    },
+    "intent": {
+      "type": "object",
+      "properties": {
+        "agent_id": { "type": "string" },
+        "agent_name": { "type": "string" },
+        "action": { "type": "string" },
+        "target": { "type": "object" },
+        "reasoning": { "type": "string" },
+        "formed_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "policy_result": {
+      "type": "object",
+      "properties": {
+        "effect": { "type": "string", "enum": ["allow", "deny", "require_human"] },
+        "rule_id": { "type": "string", "description": "Which rule matched" },
+        "principal": { "type": "string", "description": "Who authorized this policy" },
+        "human_approved": {
+          "type": "boolean",
+          "description": "True if human approval was obtained for this action"
+        },
+        "human_approval_at": { "type": "string", "format": "date-time" },
+        "evaluated_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "status": { "type": "string", "enum": ["pending", "executed", "failed", "skipped"] },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string", "enum": ["submission_id", "tx_hash", "api_response", "receipt_id"] },
+              "value": { "type": "string" },
+              "source": { "type": "string", "description": "Where this evidence comes from" }
+            }
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "executed_at": { "type": "string", "format": "date-time" },
+        "duration_ms": { "type": "integer" }
+      }
+    },
+    "attribution": {
+      "type": "object",
+      "properties": {
+        "initiated_by": { "type": "string" },
+        "authorized_by": { "type": "string" },
+        "policy_version": { "type": "string" },
+        "lab": { "type": "string", "description": "Lab affiliation" }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["policy_denied", "human_pending", "executed", "failed", "partial"]
+    },
+    "timestamp": { "type": "string", "format": "date-time" }
+  }
+}

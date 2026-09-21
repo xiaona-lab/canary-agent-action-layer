@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Agent Intent",
+  "description": "A structured representation of what an agent wants to do.",
+  "type": "object",
+  "required": ["agent", "action", "target", "timestamp"],
+  "properties": {
+    "agent": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "type": "string", "description": "Unique agent identifier within the Lab" },
+        "name": { "type": "string", "description": "Human-readable agent name" }
+      }
+    },
+    "action": {
+      "type": "string",
+      "enum": ["submit_bounty", "execute_transaction", "register_platform", "post_content", "deploy_contract", "call_api", "other"]
+    },
+    "target": {
+      "type": "object",
+      "required": ["platform", "endpoint"],
+      "properties": {
+        "platform": { "type": "string", "description": "Target platform, e.g. 'superteam_earn', 'robinhood_chain', 'substack'" },
+        "endpoint": { "type": "string", "description": "Specific endpoint or function" },
+        "chain_id": { "type": "integer", "description": "Blockchain chain ID if applicable" },
+        "contract": { "type": "string", "description": "Contract address if applicable" }
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "description": "Action-specific parameters"
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "reasoning": { "type": "string", "description": "Why the agent wants to do this" },
+        "parent_intent": { "type": "string", "description": "Parent intent ID if this is a sub-action" },
+        "session": { "type": "string", "description": "Session identifier for grouping related actions" }
+      }
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the intent was formed"
+    }
+  }
+}

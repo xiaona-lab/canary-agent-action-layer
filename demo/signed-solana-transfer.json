@@ -1,0 +1,48 @@
+{
+  "receipt_id": "rec_20260921_064805_2",
+  "intent": {
+    "agent_id": "agent-scout",
+    "agent_name": "Agent-Scout",
+    "action": "solana_transfer",
+    "target": {
+      "platform": "solana",
+      "chain": "mainnet-beta",
+      "endpoint": "transfer"
+    },
+    "reasoning": "Testing Solana transfer policy gate",
+    "formed_at": "2026-09-21T06:00:00Z"
+  },
+  "policy_result": {
+    "effect": "require_human",
+    "rule_id": "agent-solana-transfer-v1",
+    "principal": "xiaona@xiaona-lab",
+    "human_approved": false,
+    "human_approval_at": null,
+    "evaluated_at": "2026-09-21T06:48:05.278065+00:00"
+  },
+  "execution": {
+    "status": "pending",
+    "evidence": [],
+    "errors": [],
+    "executed_at": "",
+    "duration_ms": null
+  },
+  "attribution": {
+    "initiated_by": "agent-scout",
+    "authorized_by": "xiaona@xiaona-lab",
+    "policy_version": "2026-09-20-v1",
+    "lab": "xiaona-lab"
+  },
+  "status": "human_pending",
+  "timestamp": "2026-09-21T06:48:05.278065+00:00",
+  "_proof": {
+    "body_hash": "64fee3730330567ab3a0d1c780045b8ac95d635fade648103c98f27b575508c3",
+    "chain_hash": "fec95a9b7df71036f5392bcef2d04942946fa1cda4af59ed046c72e17bd47770",
+    "prev_chain_hash": "37b7fa95533523a9d3813dfcf2aa3cf59aad53c103ccdfaa46729f365db6d470",
+    "sequence": 2,
+    "signature": "ebe9f71d195bde209142e1d6bad57068cf3b2cec67950ab97cd08011947b3d2f27848d549d0462e1619e7463f9899ae19cc632178209d8a866df454aef178c04",
+    "signer": "b5894d6de534c9b08c2530dd94e768cfe2e0657ee266bd8a69071c1bc759e96f",
+    "signed_at": "2026-09-21T06:48:05.278065+00:00",
+    "scheme": "ed25519"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "receipt_id": "rec_20260921_061844_1",
+  "intent": {
+    "agent_id": "agent-scout",
+    "agent_name": "Agent-Scout",
+    "action": "submit_bounty",
+    "target": {
+      "platform": "superteam_earn",
+      "endpoint": "POST /api/agents/submissions/create",
+      "listing_id": "3c12a2d7-88af-40cb-add1-79546e76b8a2"
+    },
+    "reasoning": "Completed RH Chain USDG-to-ETH swap verification. Article published on Substack.",
+    "formed_at": "2026-09-20T10:14:24.137Z"
+  },
+  "policy_result": {
+    "effect": "allow",
+    "rule_id": "agent-submit-bounty-v1",
+    "principal": "xiaona@xiaona-lab",
+    "human_approved": false,
+    "human_approval_at": null,
+    "evaluated_at": "2026-09-21T06:18:44.936159+00:00"
+  },
+  "execution": {
+    "status": "executed",
+    "evidence": [
+      {
+        "type": "submission_id",
+        "value": "46c8c824-ab2b-43fd-a5e8-c73c7ffa3ff5",
+        "source": "superteam_fun_api"
+      },
+      {
+        "type": "api_response",
+        "value": "{\"status\":\"Pending\"}",
+        "source": "POST /api/agents/submissions/create"
+      },
+      {
+        "type": "receipt_id",
+        "value": "https://xiaowu26315.substack.com/p/theres-no-path-is-not-a-fact-its",
+        "source": "substack"
+      }
+    ],
+    "errors": [],
+    "executed_at": "2026-09-21T06:18:44.936159+00:00",
+    "duration_ms": 0
+  },
+  "attribution": {
+    "initiated_by": "",
+    "authorized_by": "",
+    "policy_version": "",
+    "lab": "xiaona-lab"
+  },
+  "status": "executed",
+  "timestamp": "2026-09-21T06:18:44.936159+00:00"
+}

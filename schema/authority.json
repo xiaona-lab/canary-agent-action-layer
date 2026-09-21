@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Authority Configuration",
+  "description": "Defines what an agent is authorized to do. Configurable by principal, not hardcoded.",
+  "type": "object",
+  "required": ["principal", "agent_id", "policy_rules", "created_at"],
+  "properties": {
+    "principal": {
+      "type": "string",
+      "description": "Who grants this authority (human or another agent)"
+    },
+    "agent_id": {
+      "type": "string",
+      "description": "The agent receiving authority"
+    },
+    "policy_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rule_id", "action_type", "effect"],
+        "properties": {
+          "rule_id": { "type": "string" },
+          "action_type": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Which action types this rule applies to"
+          },
+          "effect": {
+            "type": "string",
+            "enum": ["allow", "deny", "require_human", "notify"],
+            "description": "allow = autonomous execution; deny = blocked; require_human = pause for approval; notify = execute but alert principal"
+          },
+          "conditions": {
+            "type": "object",
+            "properties": {
+              "max_value": { "type": "number", "description": "Maximum monetary value in USD" },
+              "platforms": { "type": "array", "items": { "type": "string" }, "description": "Allowed platforms" },
+              "max_per_day": { "type": "integer", "description": "Maximum actions of this type per day" },
+              "require_human_for": { "type": "array", "items": { "type": "string" }, "description": "Sub-conditions that trigger human boundary" }
+            }
+          },
+          "reason": { "type": "string", "description": "Why this rule exists — for audit" }
+        }
+      }
+    },
+    "default_effect": {
+      "type": "string",
+      "enum": ["deny", "require_human"],
+      "description": "What happens when no rule matches. deny = safe default; require_human = conservative default"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional expiration for time-limited authority"
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  }
+}

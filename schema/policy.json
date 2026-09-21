@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Policy Evaluation Result",
+  "description": "Intermediate result of evaluating an intent against authority rules.",
+  "type": "object",
+  "required": ["intent_id", "effect", "matched_rule", "evaluated_at"],
+  "properties": {
+    "intent_id": { "type": "string" },
+    "effect": {
+      "type": "string",
+      "enum": ["allow", "deny", "require_human", "notify"]
+    },
+    "matched_rule": {
+      "type": "object",
+      "properties": {
+        "rule_id": { "type": "string" },
+        "principal": { "type": "string" },
+        "reason": { "type": "string" }
+      }
+    },
+    "conditions_checked": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "condition": { "type": "string" },
+          "passed": { "type": "boolean" },
+          "detail": { "type": "string" }
+        }
+      }
+    },
+    "human_required_reason": {
+      "type": "string",
+      "description": "If effect=require_human, why human is needed"
+    },
+    "evaluated_at": { "type": "string", "format": "date-time" }
+  }
+}

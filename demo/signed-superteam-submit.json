@@ -1,0 +1,63 @@
+{
+  "receipt_id": "rec_20260921_064805_1",
+  "intent": {
+    "agent_id": "agent-scout",
+    "agent_name": "Agent-Scout",
+    "action": "submit_bounty",
+    "target": {
+      "platform": "superteam_earn",
+      "endpoint": "POST /api/agents/submissions/create"
+    },
+    "reasoning": "Completed RH Chain USDG-to-ETH swap verification. Article published on Substack.",
+    "formed_at": "2026-09-20T10:14:24.137Z"
+  },
+  "policy_result": {
+    "effect": "allow",
+    "rule_id": "agent-submit-bounty-v1",
+    "principal": "xiaona@xiaona-lab",
+    "human_approved": false,
+    "human_approval_at": null,
+    "evaluated_at": "2026-09-21T06:48:05.276051+00:00"
+  },
+  "execution": {
+    "status": "executed",
+    "evidence": [
+      {
+        "type": "submission_id",
+        "value": "46c8c824-ab2b-43fd-a5e8-c73c7ffa3ff5",
+        "source": "superteam_fun_api"
+      },
+      {
+        "type": "api_response",
+        "value": "{\"status\":\"Pending\",\"link\":\"https://xiaowu26315.substack.com/p/theres-no-path-is-not-a-fact-its\"}",
+        "source": "POST /api/agents/submissions/create"
+      },
+      {
+        "type": "article_url",
+        "value": "https://xiaowu26315.substack.com/p/theres-no-path-is-not-a-fact-its",
+        "source": "substack"
+      }
+    ],
+    "errors": [],
+    "executed_at": "2026-09-21T06:48:05.276051+00:00",
+    "duration_ms": 0
+  },
+  "attribution": {
+    "initiated_by": "agent-scout",
+    "authorized_by": "xiaona@xiaona-lab",
+    "policy_version": "2026-09-20-v1",
+    "lab": "xiaona-lab"
+  },
+  "status": "executed",
+  "timestamp": "2026-09-21T06:48:05.276051+00:00",
+  "_proof": {
+    "body_hash": "5afc5754a73076956d73e7eedd3601a362dabbb5aa268b9d96932ecf55393fb5",
+    "chain_hash": "37b7fa95533523a9d3813dfcf2aa3cf59aad53c103ccdfaa46729f365db6d470",
+    "prev_chain_hash": null,
+    "sequence": 1,
+    "signature": "7eab18eb4914fb6204239c1f7687e6e17031e4baa7a2719faa4cc8a30b52751bc761feef41b83904504ad47f10f6861de4ba7ba2262324e143e0554f943ac200",
+    "signer": "b5894d6de534c9b08c2530dd94e768cfe2e0657ee266bd8a69071c1bc759e96f",
+    "signed_at": "2026-09-21T06:48:05.277067+00:00",
+    "scheme": "ed25519"
+  }
+}

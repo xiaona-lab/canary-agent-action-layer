@@ -1,0 +1,58 @@
+{
+  "receipt_id": "rec_20260921_064805_3",
+  "intent": {
+    "agent_id": "agent-scout",
+    "agent_name": "Agent-Scout",
+    "action": "solana_program",
+    "target": {
+      "platform": "solana",
+      "endpoint": "dry-run"
+    },
+    "reasoning": "Construct a Solana USDC transfer plan \u2014 dry-run only, no real funds move.",
+    "formed_at": "2026-09-21T06:00:00Z"
+  },
+  "policy_result": {
+    "effect": "allow",
+    "rule_id": "agent-solana-dryrun-v1",
+    "principal": "xiaona@xiaona-lab",
+    "human_approved": false,
+    "human_approval_at": null,
+    "evaluated_at": "2026-09-21T06:48:05.278065+00:00"
+  },
+  "execution": {
+    "status": "executed",
+    "evidence": [
+      {
+        "type": "simulated_tx_hash",
+        "value": "SimTx_c3404989eba56906ea9a91f70fe03eb88dcc75c2e2e2",
+        "source": "solana_simulator"
+      },
+      {
+        "type": "instruction",
+        "value": "{\"program\": \"Token Program\", \"action\": \"plan_transfer\", \"params\": {\"program\": \"Token Program\", \"action\": \"plan_transfer\", \"recipient\": \"TestWallet\", \"amount\": 10, \"token\": \"USDC\"}}",
+        "source": "solana_simulator"
+      }
+    ],
+    "errors": [],
+    "executed_at": "2026-09-21T06:48:05.278065+00:00",
+    "duration_ms": 0
+  },
+  "attribution": {
+    "initiated_by": "agent-scout",
+    "authorized_by": "xiaona@xiaona-lab",
+    "policy_version": "2026-09-20-v1",
+    "lab": "xiaona-lab"
+  },
+  "status": "executed",
+  "timestamp": "2026-09-21T06:48:05.278065+00:00",
+  "_proof": {
+    "body_hash": "39d610e574177e8c6f6d65e1c6e1bfa40635421db7804a17308ce938b847c440",
+    "chain_hash": "566cf1eb66492b1e2cca5dcd283b8ce3ef697fd5a2ae245f2e345148dc143d6e",
+    "prev_chain_hash": "fec95a9b7df71036f5392bcef2d04942946fa1cda4af59ed046c72e17bd47770",
+    "sequence": 3,
+    "signature": "79988f03e8de0fa8e0268b6b2482ed7b7b76ca4162cdf7fe6d9bc69c815e238b2ec87527d6ec9ad67650ab0d6bbc48393d204baefc8a39d2d29cff118d644608",
+    "signer": "b5894d6de534c9b08c2530dd94e768cfe2e0657ee266bd8a69071c1bc759e96f",
+    "signed_at": "2026-09-21T06:48:05.278065+00:00",
+    "scheme": "ed25519"
+  }
+}
