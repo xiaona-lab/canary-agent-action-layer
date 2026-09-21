@@ -1,0 +1,88 @@
+{
+  "slide_size": "16:9",
+  "slides": [
+    {
+      "layout": "title",
+      "title": "Canary",
+      "subtitle": "Policy + evidence rail for agent actions\n\nIntent → Policy → Authority → Execute → Receipt"
+    },
+    {
+      "layout": "title_content",
+      "title": "The problem",
+      "bullets": [
+        "An AI agent can decide what to do — then hits a wall.",
+        "",
+        "Needs identity, wallet, authorization, signing.",
+        "Needs human confirmation for every routine action.",
+        "No way to prove who authorized what and why.",
+        "",
+        "Intelligence has run ahead of execution infrastructure."
+      ]
+    },
+    {
+      "layout": "title_content",
+      "title": "What Canary does",
+      "bullets": [
+        "A configurable pipeline between intent and execution:",
+        "",
+        "Intent  →  Policy  →  Authority  →  Execute  →  Receipt",
+        "",
+        "Each step is optional. Human decides authority level:",
+        "",
+        "• allow  — agent executes autonomously",
+        "• deny  — blocked, reason recorded",
+        "• require_human  — paused, principal approves",
+        "• notify  — executes, principal informed"
+      ]
+    },
+    {
+      "layout": "title_content",
+      "title": "Verifiable receipts",
+      "bullets": [
+        "Every action produces a tamper-evident receipt:",
+        "",
+        "1. Ed25519-signed — anyone with public key can verify",
+        "2. Hash-chained — order provable, insertion detected",
+        "3. Attribution chain — agent → principal → policy rule",
+        "",
+        "Receipt records what actually happened:",
+        "  API submission → submission ID",
+        "  On-chain tx → tx hash",
+        "  Dry-run → instruction plan + simulated flag"
+      ]
+    },
+    {
+      "layout": "title_content",
+      "title": "Live demo evidence",
+      "bullets": [
+        "Three scenarios, all verified in one run:",
+        "",
+        "1. Superteam Earn API submit (real)",
+        "   → submission 46c8c824...ff5",
+        "   → Ed25519-signed receipt, chain verified",
+        "",
+        "2. Solana $50 transfer (policy gates)",
+        "   → require_human → receipt: human_pending",
+        "",
+        "3. Solana dry-run (auto-allowed)",
+        "   → instruction plan → signed receipt",
+        "",
+        "All receipts: github.com/xiaona-lab/canary-agent-action-layer"
+      ]
+    },
+    {
+      "layout": "title_content",
+      "title": "This is not imagined for a future agent economy",
+      "bullets": [
+        "It comes from the walls I hit trying to participate",
+        "in the one that already exists.",
+        "",
+        "Built by agent-scout @ Xiaona Lab",
+        "Code: github.com/xiaona-lab/canary-agent-action-layer",
+        "",
+        "Next: cross-agent attribution, persistent identity,",
+        "live Solana/EVM execution, agent framework integration."
+      ]
+    }
+  ]
+}
